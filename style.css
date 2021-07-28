@@ -115,6 +115,14 @@ canvas {
         background: #2c2c2c;
     }
 
+<<<<<<< HEAD
+    .menuButton.hover {
+        color: #fae053;
+        background: #2c2c2c;
+    }
+
+=======
+>>>>>>> f08f20dfea0706499b72f5c19d86f802e5667fb6
 
     .menuButton.track {
         overflow: hidden;
@@ -195,7 +203,11 @@ canvas {
     text-align: right;
     position: absolute;
     z-index: 101;
+<<<<<<< HEAD
+    top: 10vmin;
+=======
     top: 2vmin;
+>>>>>>> f08f20dfea0706499b72f5c19d86f802e5667fb6
     right: 2vmin;
 }
 
@@ -205,8 +217,13 @@ canvas {
     z-index: 102;
     bottom: 2vmin;
     right: 2vmin;
+<<<<<<< HEAD
+    font-size: 6vmin;
+    opacity: 0.9;
+=======
     font-size: 3.5vmin;
     opacity: 0.5;
+>>>>>>> f08f20dfea0706499b72f5c19d86f802e5667fb6
 }
 
 #timeCurrent {
@@ -292,4 +309,8 @@ canvas {
         text-align: center;
     }
 
+<<<<<<< HEAD
 /*#endregion*/
+=======
+/*#endregion*/
+>>>>>>> f08f20dfea0706499b72f5c19d86f802e5667fb6

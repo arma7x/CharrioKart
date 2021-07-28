@@ -5,7 +5,11 @@ document.body.appendChild(renderer.domElement);
 
 // Selected track and racer
 var track = null;
+<<<<<<< HEAD
+var racer = "kartA";
+=======
 var racer = "kartB";
+>>>>>>> f08f20dfea0706499b72f5c19d86f802e5667fb6
 
 var mainMenu = document.getElementById("mainMenu");
 
@@ -142,4 +146,143 @@ var version = "1.4";
 // debug stuff
 //showMenu("track");
 //setRacer("kartB");
+<<<<<<< HEAD
 //loadMap("ascalon");
+
+function displayKaiAds() {
+  var display = true;
+  if (window['kaiadstimer'] == null) {
+    window['kaiadstimer'] = new Date();
+  } else {
+    var now = new Date();
+    if ((now - window['kaiadstimer']) < 300000) {
+      display = false;
+    } else {
+      window['kaiadstimer'] = now;
+    }
+  }
+  console.log('Display Ads:', display);
+  if (!display)
+    return;
+  getKaiAd({
+    publisher: 'ac3140f7-08d6-46d9-aa6f-d861720fba66',
+    app: 'charrio-Kart',
+    slot: 'kaios',
+    onerror: err => console.error(err),
+    onready: ad => {
+      ad.call('display')
+    }
+  })
+}
+
+window.addEventListener("load", function() {
+
+  displayKaiAds();
+
+  document.addEventListener('visibilitychange', function(ev) {
+    if (document.visibilityState === 'visible') {
+      displayKaiAds();
+    }
+  });
+
+  var menu;
+  var tabIndex = -1;
+  var current = '';
+
+  document.addEventListener('keydown', (evt) => {
+    const popups = document.getElementsByClassName('popup');
+    for (var p in popups) {
+      if (typeof popups[p] === 'object') {
+        if (popups[p].style.display === 'block') {
+          menu = popups[p];
+        }
+      }
+    }
+    if (!menu && evt.keyCode === 13) {
+      showMenu('main')
+    } else if (menu.id) {
+      if(menu.id === 'menu_main') {
+        if (current !== menu.id) {
+          current = menu.id;
+          tabIndex = -1;
+        }
+      } else if(menu.id === 'menu_about') {
+        if (current !== menu.id) {
+          current = menu.id;
+          tabIndex = -1;
+        }
+      } else if(menu.id === 'menu_settings') {
+        if (current !== menu.id) {
+          current = menu.id;
+          tabIndex = -1;
+        }
+      } else if(menu.id === 'menu_racer') {
+        if (current !== menu.id) {
+          current = menu.id;
+          tabIndex = -1;
+        }
+      } else if(menu.id === 'menu_track') {
+        if (!track) {
+          if (current !== menu.id) {
+            current = menu.id;
+            tabIndex = -1;
+          }
+        } else if (track.state === "paused" ) {
+          menu = document.getElementsByClassName('gameMenuPopup')[0];
+        }
+      }
+      var sel = [];
+      for (var x in menu.children) {
+        if (menu.children[x].classList) {
+          if (menu.children[x].classList.contains('menuButton') && !menu.children[x].classList.contains('secret')) {
+            sel.push(menu.children[x]);
+          }
+        }
+      }
+      navigation(evt, sel);
+    }
+
+    function navigation(evt, sel) {
+      if (evt.keyCode === 40) {
+        if (tabIndex == sel.length - 1)
+          return
+        tabIndex += 1;
+        sel[tabIndex].classList.add("hover");
+        if (sel[tabIndex - 1])
+          sel[tabIndex - 1].classList.remove("hover");
+      } else if (evt.keyCode === 38) {
+        if (tabIndex == 0 || tabIndex == -1)
+          return
+        tabIndex -= 1;
+        sel[tabIndex].classList.add("hover");
+        if (sel[tabIndex + 1])
+          sel[tabIndex + 1].classList.remove("hover");
+      } else if (evt.keyCode === 13) {
+        if (sel[tabIndex]) {
+          sel[tabIndex].click();
+          tabIndex = -1;
+          var menuButtons = document.getElementsByClassName('menuButton')
+          for (var t in menuButtons) {
+            if (menuButtons[t].classList) {
+              menuButtons[t].classList.remove("hover");
+            }
+          }
+        }
+      } else if ((evt.key === 'Backspace' || evt.key === 'EndCall') && current === 'menu_track' && track) {
+        if (track.state === "paused") {
+          unpause();
+        } else {
+          pause();
+        }
+        evt.preventDefault();
+        evt.stopPropagation();
+      } else if ((evt.key === 'Backspace' || evt.key === 'EndCall') && current === 'menu_main') {
+        window.close();
+      }
+    }
+  });
+
+})
+=======
+//loadMap("ascalon");
+>>>>>>> f08f20dfea0706499b72f5c19d86f802e5667fb6
