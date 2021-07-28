@@ -23,7 +23,7 @@ var keyCodes = {
 var keyCodesAlt = {
     left: 65,
     right: 68,
-    up: 87,
+    up: 52, //87,
     down: 83,
     A: 81,
     B: 69,
