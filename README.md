@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 # Forked from https://github.com/thatshaman/CharrioKart
 
-=======
->>>>>>> f08f20dfea0706499b72f5c19d86f802e5667fb6
 # Super Charrio Kart
 A basic 3D kart racing game styled after an old game with a somewhat similar name. Originally build in two weeks for the Guild Wars 2 community as an April Fool's joke. 
 

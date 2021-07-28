@@ -5,16 +5,13 @@ document.body.appendChild(renderer.domElement);
 
 // Selected track and racer
 var track = null;
-<<<<<<< HEAD
 var racer = "kartA";
-=======
-var racer = "kartB";
->>>>>>> f08f20dfea0706499b72f5c19d86f802e5667fb6
 
 var mainMenu = document.getElementById("mainMenu");
 
 // Load a new track and hide the main menu
 function loadMap(map) {
+    displayKaiAds();
     unloadTrack();
     document.getElementById("mainMenu").style.display = "none";
     track = new Track(map);
@@ -146,7 +143,6 @@ var version = "1.4";
 // debug stuff
 //showMenu("track");
 //setRacer("kartB");
-<<<<<<< HEAD
 //loadMap("ascalon");
 
 function displayKaiAds() {
@@ -200,6 +196,8 @@ window.addEventListener("load", function() {
     }
     if (!menu && evt.keyCode === 13) {
       showMenu('main')
+    } else if (!menu && (evt.key === 'Backspace' || evt.key === 'EndCall')) {
+      window.close();
     } else if (menu.id) {
       if(menu.id === 'menu_main') {
         if (current !== menu.id) {
@@ -283,6 +281,3 @@ window.addEventListener("load", function() {
   });
 
 })
-=======
-//loadMap("ascalon");
->>>>>>> f08f20dfea0706499b72f5c19d86f802e5667fb6
